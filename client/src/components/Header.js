@@ -36,14 +36,14 @@ const Header = () => {
           <SearchForm />
         </div>
         {/* phone & cart */}
-        <div>
+        <div className='flex items-center gap-x-[10px]'>
           {/* phone */}
-          <div>Need help? 0606060606</div>
+          <div className='hidden xl:flex uppercase'>Need help? 0606060606</div>
           {/* cart icon */}
           <div onClick={() => setIsOpen(!IsOpen)} className='relative cursor-pointer'>
             <SlBag className='text-2xl' />
             {/* amount */}
-            <div>2</div>
+            <div className='bg-accent text-primary absolute w-[18px] h-[18px] rounded-full top-3 -right-1 text-[13px] flex justify-center items-center font-bold tracking-[-0.1em]'>2</div>
           </div>
           {/* cart */}
           <div className={`
