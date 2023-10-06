@@ -9,8 +9,8 @@ const SearchForm = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [isAnimating, setIsAnimating] = useState(false);
 
-  useEffect(()=>{
-    const timeout = setTimeout(()=>{
+  useEffect(() => {
+    const timeout = setTimeout(() => {
       setIsAnimating(false);
     }, 1000);
     // clear timeout event
@@ -22,14 +22,13 @@ const SearchForm = () => {
   };
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(searchTerm);
     if (searchTerm.length > 0) {
       navigate(`/search?query=${searchTerm}`);
       document.querySelector('input').value = '';
       setSearchTerm('')
     } else {
       // if input is empty animation to true
-     setIsAnimating(true);
+      setIsAnimating(true);
     }
   }
   return <form onSubmit={handleSubmit} className={`${isAnimating ? 'animate-shake' : 'animate-none'} w-full relative`}>
