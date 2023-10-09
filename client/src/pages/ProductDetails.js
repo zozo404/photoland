@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 // useParams hook
 import { useParams } from 'react-router-dom';
 // import useFetch hook
@@ -9,6 +9,7 @@ import RelatedProducts from '../components/RelatedProducts';
 import { CartContext } from '../context/CartContext';
 
 const ProductDetails = () => {
+  const { addToCart } = useContext(CartContext);
   const { id } = useParams();
   // get product data base on the id
   const { data } = useFetch(`/products?populate=*&filters[id][$eq]=${id}`);
@@ -38,7 +39,7 @@ const ProductDetails = () => {
           <div className='flex items-center gap-x-8'>
             {/* price */}
             <div className='text-3xl text-accent font-semibold'>{data[0].attributes.price} €</div>
-            <button className='btn btn-accent'>Add to cart</button>
+            <button onClick={()=> addToCart(data,id)} className='btn btn-accent'>Add to cart</button>
           </div>
         </div>
       </div>
